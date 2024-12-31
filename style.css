@@ -1,116 +1,139 @@
-/* General body and page settings */
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5; /* Light background color */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333; /* Dark text for contrast */
+    background-color: #f4f4f9;
 }
 
-/* Header */
 header {
-    background-color: #6C6EFF; /* Soft purple background */
+    background-color: #3f3f3f;
     color: white;
+    padding: 10px 0;
     text-align: center;
-    padding: 50px 20px;
 }
 
-header h1 {
-    font-size: 3em;
+h1 {
     margin: 0;
 }
 
-/* Navigation buttons */
-nav button {
-    background-color: #FF6F61; /* Coral color */
-    color: white;
-    border: none;
+nav {
+    margin-top: 10px;
+}
+
+button {
     padding: 10px 20px;
     margin: 5px;
-    border-radius: 5px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
     cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
 }
 
-nav button:hover {
-    background-color: #FF3B2B; /* Darker red on hover */
+button:hover {
+    background-color: #005bb5;
 }
 
-/* Main content section */
-#posts, #randomFact, #daily-quote, #polls, #roadmap {
+/* Countdown Section */
+#countdown {
+    background-color: #fff;
     padding: 20px;
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Section titles */
 .section-title {
-    font-size: 2em;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-/* Post Section */
+#countdown-timer {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+#countdown-text {
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+/* Posts Section */
+#posts {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
 #posts p {
-    font-size: 1.2em;
+    font-size: 18px;
     line-height: 1.6;
+}
+
+.placeholder {
+    height: 150px;
+    background-color: #ddd;
+    margin-top: 15px;
 }
 
 /* Random Fact Section */
 #randomFact {
-    background-color: #FFFFF0; /* Light yellow background */
-    border-left: 10px solid #FF6F61; /* Coral left border */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
 }
 
-#randomFact p {
-    font-size: 1.2em;
-    font-weight: bold;
+.fact-box {
+    font-size: 18px;
+    color: #555;
 }
 
 /* Daily Quote Section */
-#quote-box {
-    background-color: #F4F4F4;
+#daily-quote {
+    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#quote-box {
     text-align: center;
-}
-
-#quote-text {
-    font-size: 1.5em;
+    font-size: 20px;
     font-style: italic;
-    color: #333;
+    color: #777;
 }
 
-/* Polls/Quizzes Section */
+/* Polls Section */
+#polls {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
 #poll-container {
     text-align: center;
 }
 
-#poll-container button {
-    background-color: #6C6EFF; /* Soft purple for buttons */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-}
-
-#poll-container button:hover {
-    background-color: #4D4DFF; /* Darker purple on hover */
-}
-
 #quiz-result {
-    margin-top: 20px;
-    font-size: 1.2em;
+    margin-top: 10px;
+    font-size: 18px;
 }
 
-/* Roadmap Progress Section */
+/* Roadmap Section */
+#roadmap {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
 .roadmap-container {
     display: flex;
     flex-direction: column;
@@ -118,57 +141,36 @@ nav button:hover {
 }
 
 .roadmap-step {
-    padding: 20px;
-    margin: 10px;
-    background-color: #6C6EFF;
-    color: white;
-    border-radius: 10px;
+    margin: 15px 0;
+    background-color: #f0f0f0;
+    padding: 15px;
     width: 80%;
+    border-radius: 8px;
     text-align: center;
 }
 
 .roadmap-step.completed {
-    background-color: #4D4DFF;
+    background-color: #c8f7c5;
 }
 
-/* Footer */
+/* Footer Section */
 footer {
-    background-color: #333;
+    background-color: #3f3f3f;
     color: white;
+    padding: 10px 0;
     text-align: center;
-    padding: 15px;
-    margin-top: 30px;
 }
 
-footer p {
-    font-size: 1.2em;
-    margin: 0;
+.song-button {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em; /* Smaller header text on smaller screens */
-    }
-
-    .section-title {
-        font-size: 1.5em; /* Smaller section titles on smaller screens */
-    }
-
-    #posts, #randomFact, #daily-quote, #polls, #roadmap {
-        margin: 10px;
-        padding: 10px;
-    }
-
-    img {
-        max-width: 100%; /* Ensure images scale to fit smaller screens */
-    }
-
-    nav button {
-        font-size: 1em; /* Adjust button size on smaller screens */
-    }
-
-    .roadmap-container {
-        flex-direction: column;
-    }
+.song-button:hover {
+    background-color: #e67e22;
 }
