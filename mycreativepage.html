@@ -5,83 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Creative Space</title>
 
-<link rel="stylesheet" href="style.css">
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #FF9A8B, #FFD6A5, #FBC8D4);
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #FF9A8B;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #FF6F61;
-        }
-        nav {
-            margin-top: 15px;
-        }
-        nav button {
-            background-color: #FF6F61;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        nav button:hover {
-            background-color: #FF9A8B;
-        }
-        main {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #FF6F61;
-        }
-        .fact-box {
-            font-size: 1.2rem;
-            background-color: #FFD6A5;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-top: 2px solid #FF9A8B;
-        }
-        .song-button {
-            background-color: #FFD6A5;
-            border: none;
-            padding: 10px 20px;
-            color: #333;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .song-button:hover {
-            background-color: #FF9A8B;
-        }
-    </style>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -89,7 +14,6 @@
         <h1>My Creative Space</h1>
         <nav>
             <button onclick="navigateTo('posts')">Posts</button>
-            <button onclick="navigateTo('links')">Links</button>
             <button onclick="navigateTo('randomFact')">Random Fact</button>
         </nav>
     </header>
@@ -99,11 +23,8 @@
         <section id="posts">
             <h2 class="section-title">Posts</h2>
             <p>Life update! Life has been pretty good, been staying busy. Been spending time with family and been doing volunteer work! Christmas was very good indeed! Lots of fun had there. We did singing, played games, caroled and ate lots of yummy food!</p>
-<img src="IMG_9372.jpg" alt="A description of the image" style="width:50%; max-width:250px;"/>
+            <img src="IMG_9372.jpg" alt="A description of the image" style="width:50%; max-width:250px;"/>
             <div class="placeholder"></div>
-        </section>
-
-            </ul>
         </section>
 
         <!-- Random Fact Section -->
@@ -115,6 +36,7 @@
 
     <footer>
         <button class="song-button" onclick="playSong()">Play Song of the Day</button>
+        <button class="song-button" onclick="pauseSong()">Pause Song</button> <!-- Pause button -->
         <audio id="songPlayer" src="The Heartburn Song.mp3"></audio>
         <p>&copy; 2024 My Creative Space</p>
     </footer>
@@ -128,7 +50,13 @@
             const player = document.getElementById('songPlayer');
             player.play();
         }
+
+        function pauseSong() {  // Pause song function
+            const player = document.getElementById('songPlayer');
+            player.pause();
+        }
     </script>
 
 </body>
 </html>
+
