@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Creative Space</title>
-
-    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <h1>My Creative Space</h1>
         <nav>
             <button onclick="navigateTo('posts')">Posts</button>
             <button onclick="navigateTo('randomFact')">Random Fact</button>
+            <button onclick="navigateTo('daily-quote')">Daily Quote</button>
+            <button onclick="navigateTo('polls')">Polls/Quizzes</button>
+            <button onclick="navigateTo('roadmap')">Roadmap</button>
         </nav>
     </header>
 
@@ -22,42 +22,138 @@
         <!-- Posts Section -->
         <section id="posts">
             <h2 class="section-title">Posts</h2>
-            <p>Life update! Life has been pretty good, been staying busy. Been spending time with family and been doing volunteer work! Christmas was very good indeed! Lots of fun had there. We did singing, played games, caroled and ate lots of yummy food!</p>
-            <img src="IMG_9372.jpg" alt="A description of the image" style="width:50%; max-width:250px;"/>
+            <p>Life update! Life has been pretty good, been staying busy. Been spending time with family and been doing volunteer work! Christmas was very good indeed! Lots of fun had there. We did singing, played games, caroled, and ate lots of yummy food!</p>
+            <img src="IMG_9372.jpg" alt="A description of the image" style="width:50%; max-width:250px;">
             <div class="placeholder"></div>
         </section>
 
         <!-- Random Fact Section -->
         <section id="randomFact">
             <h2 class="section-title">Random Fact</h2>
-            <p class="fact-box">Did you know? <span id="fact">When you feel like you fall in your sleep then wake up. That is your brain Saving you!</span></p>
+            <p class="fact-box">Did you know? <span id="fact">When you feel like you fall in your sleep then wake up. That is your brain saving you!</span></p>
+        </section>
+
+        <!-- Daily Quote Section -->
+        <section id="daily-quote">
+            <h2 class="section-title">Daily Quote</h2>
+            <div id="quote-box">
+                <p id="quote-text">"Loading your daily dose of inspiration..."</p>
+            </div>
+        </section>
+
+        <!-- Polls/Quizzes Section -->
+        <section id="polls">
+            <h2 class="section-title">Polls and Quizzes</h2>
+            <div id="poll-container">
+                <p>What is your favorite color?</p>
+                <button onclick="submitQuizAnswer('Red')">Red</button>
+                <button onclick="submitQuizAnswer('Sky blue')">Sky blue</button>
+                <button onclick="submitQuizAnswer('Dark green')">Dark green</button>
+                <button onclick="submitQuizAnswer('Coral pink')">Coral pink</button>
+                <p id="quiz-result"></p>
+            </div>
+        </section>
+
+        <!-- Roadmap Progress Section -->
+        <section id="roadmap">
+            <h2 class="section-title">My Progress Roadmap</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-step completed">
+                    <h3>Goal 1: Learn a language</h3>
+                    <p>Progress towards goal: 0% </p>
+                </div>
+                <div class="roadmap-step">
+                    <h3>Goal 2: Music improvement</h3>
+                    <p>Progress towards goal: 1%</p>
+                </div>
+                <div class="roadmap-step">
+                    <h3>Finale: Share My Results at end of 2025</h3>
+                    <p>This will be shown through videos online</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <button class="song-button" onclick="playSong()">Play Song of the Day</button>
-        <button class="song-button" onclick="pauseSong()">Pause Song</button> <!-- Pause button -->
+        <button class="song-button" onclick="pauseSong()">Pause Song</button>
         <audio id="songPlayer" src="Motion Sickness.mp3"></audio>
         <p>&copy; 2024 My Creative Space</p>
     </footer>
 
     <script>
+        // Navigation Function
         function navigateTo(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Music Player Functions
         function playSong() {
             const player = document.getElementById('songPlayer');
             player.play();
         }
 
-        function pauseSong() {  // Pause song function
+        function pauseSong() {
             const player = document.getElementById('songPlayer');
             player.pause();
         }
-    </script>
 
+        // Daily Quote Logic
+        const quotes = [
+            "Believe you can and you're halfway there.",
+            "The only limit to our realization of tomorrow is our doubts of today.",
+            "In the middle of every difficulty lies opportunity.",
+            "Do what you can, with what you have, where you are.",
+            "Happiness is not something ready-made. It comes from your own actions.",
+            "Failure is only the opportunity to begin again, this time more intelligently.",
+            "Life is like a cup of tea, it's all about how you make it.",
+            "When we hit our lowest point, we are open to the greatest change.",
+            "Sometimes the best way to solve your own problems is to help someone else.",
+            "Destiny is a funny thing. You never know how things are going to work out.",
+            "It is important to draw wisdom from many different places. If you take it from only one place, it becomes rigid and stale.",
+            "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
+            "Pride is not the opposite of shame, but its source. True humility is the only antidote to shame.",
+            "Perfection and power are overrated. I think you are very wise to choose happiness and love.",
+            "You have light and peace inside of you. If you let it out, you can change the world around you.",
+            "Even in the material world, you will find that if you look for the light, you can often find it. But if you look for the dark, that is all you will ever see.",
+            "Hope is something you give yourself. That is the meaning of inner strength.",
+            "Sharing tea with a fascinating stranger is one of life’s true delights.",
+            "Sometimes life is like this dark tunnel. You can’t always see the light at the end of the tunnel, but if you just keep moving, you will come to a better place.",
+            "The wise man learns more from his enemies than the fool does from his friends.",
+            "A flower that blooms in adversity is the most rare and beautiful of all.",
+            "Your destiny is not bound to your past. It is what you make of it now."
+        ];
+
+        function showDailyQuote() {
+            const quoteBox = document.getElementById("quote-text");
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteBox.textContent = quotes[randomIndex];
+        }
+
+        document.addEventListener("DOMContentLoaded", showDailyQuote);
+
+        // Quiz Logic
+        const correctAnswer = "Coral pink"; // Set the correct answer for the quiz
+
+        function submitQuizAnswer(answer) {
+            const result = document.getElementById("quiz-result");
+
+            if (answer === correctAnswer) {
+                result.textContent = "Correct! Coral pink is your favorite color.";
+                result.style.color = "coral"; // Color for correct answer (Coral pink)
+            } else {
+                result.textContent = `Incorrect. The correct answer is Coral pink.`;
+                
+                // Set specific colors for incorrect answers
+                if (answer === "Red") {
+                    result.style.color = "red";
+                } else if (answer === "Sky blue") {
+                    result.style.color = "skyblue";
+                } else if (answer === "Dark green") {
+                    result.style.color = "darkgreen";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
-
-
