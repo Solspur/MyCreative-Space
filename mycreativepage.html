@@ -45,7 +45,7 @@
         <section id="polls">
             <h2 class="section-title">Polls and Quizzes</h2>
             <div id="poll-container">
-                <p>What is my favorite color?</p>
+                <p>What is your favorite color?</p>
                 <button onclick="submitQuizAnswer('Red')">Red</button>
                 <button onclick="submitQuizAnswer('Sky blue')">Sky blue</button>
                 <button onclick="submitQuizAnswer('Dark green')">Dark green</button>
@@ -154,6 +154,38 @@
                 }
             }
         }
+
+        // Random Fact Logic
+        const facts = [
+            "When you feel like you fall in your sleep then wake up. That is your brain saving you!",
+            "The Eiffel Tower can be 15 cm taller during the summer due to the expansion of iron in the heat.",
+            "Bananas are berries, but strawberries are not!",
+            "Honey never spoils, archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible.",
+            "The shortest commercial flight in the world lasts just 57 seconds.",
+            "Octopuses have three hearts, two pump blood to the gills, while one pumps it to the rest of the body.",
+            "Sharks existed before trees, making them older than some of the oldest plants on Earth!",
+            "A day on Venus is longer than a year on Venus. Venus takes 243 Earth days to rotate on its axis, but only 225 Earth days to orbit the Sun.",
+            "Wombat poop is cube-shaped, helping it not roll away and mark territory.",
+            "There are more stars in the universe than grains of sand on all of Earth's beaches.",
+            "A snail can sleep for three years at a time.",
+            "Honeybees can recognize human faces.",
+            "An adult human body has fewer bones than a baby body. Babies are born with approximately 270 bones, but adults only have 206.",
+            "Sloths can hold their breath for up to 40 minutes underwater.",
+            "The world's largest snowflake on record was 15 inches wide and 8 inches thick.",
+            "It rains diamonds on Jupiter and Saturn due to extreme pressure and heat.",
+            "The longest hiccuping spree lasted 68 years.",
+            "The shortest war in history was between Britain and Zanzibar on August 27, 1896. It lasted only 38 minutes.",
+            "You can hear a blue whale’s heartbeat from more than 2 miles away.",
+            "Polar bear skin is black, even though their fur looks white."
+        ];
+
+        function showRandomFact() {
+            const factBox = document.getElementById("fact");
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factBox.textContent = facts[randomIndex];
+        }
+
+        document.addEventListener("DOMContentLoaded", showRandomFact);
     </script>
 </body>
 </html>
